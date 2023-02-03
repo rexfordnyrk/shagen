@@ -13,16 +13,16 @@ var rootCmd = &cobra.Command{
 	Short: "Generates a SHA256 HASH for any string value or set of string values provided.",
 	Long: `Generates a SHA256 HASH for any string value or set of string values provided. 
 This program accepts at least one string argument. Single string values with spaces should be placed in quotes. 
-Multiple strings to be hashed must be passed as arguments to the command seperated by a space.`,
+Multiple strings to be hashed must be passed as arguments to the command separated by a space.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		//For each arg passed, generate a SHA256 Hash
+		//For each arg passed, generate a SHA256 HASH
 		for _, arg := range args {
 			hasher := sha256.New()
 			hasher.Write([]byte(arg))
 			sha := hasher.Sum(nil)
 			fmt.Printf("Original Text: %s   \nHashed Text: %x \n--------\n", arg, sha)		}
 	},
-	//ensure that atleast 1 argument is passed by user
+	//ensure that at least 1 argument is passed by user
 	Args: cobra.MinimumNArgs(1),
 }
 
